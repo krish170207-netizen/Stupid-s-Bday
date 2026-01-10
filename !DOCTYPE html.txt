@@ -1,0 +1,420 @@
+
+
+v<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤</title>
+<style>
+body {margin:0;font-family:'Georgia',serif;overflow-x:hidden;background:linear-gradient(to right,#ffe6f0,#fff5e6);}
+h1,h2 {margin:0 0 20px 0;color:#333;text-shadow:1px 1px 2px #fff;}
+button {margin:10px;padding:12px 25px;font-size:18px;border:none;border-radius:12px;
+  background:linear-gradient(to right,#ff7eb9,#ff758c);color:white;cursor:pointer;transition:0.3s;box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+button:hover {background:linear-gradient(to right,#ff758c,#ff7eb9);transform:scale(1.08);box-shadow:0 0 20px rgba(255,100,150,0.7);}
+.screen {display:none;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:20px;position:relative;}
+.active {display:flex;}
+
+/* Intro Screen */
+#intro-screen {font-size:32px;text-align:center;color:#fff;background:linear-gradient(to right,#fbc2eb,#a6c1ee);
+  width:100%;height:100%;justify-content:center;align-items:center;flex-direction:column;position:relative;overflow:hidden;border-radius:15px;}
+#intro-screen h1 {font-size:36px;margin-bottom:30px;}
+#intro-screen button {font-size:24px;padding:15px 30px;}
+
+/* Slideshow */
+#slideshow-container {width:90%;max-width:800px;height:450px;margin:30px auto;perspective:1500px;
+  position:relative;display:flex;align-items:center;justify-content:center;}
+.book-page {width:100%;height:100%;position:absolute;transform-style:preserve-3d;transition: transform 1s ease, opacity 1s ease;
+  display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 25px rgba(0,0,0,0.4);border-radius:15px;background:#fffbe6;padding:15px;}
+.page-left,.page-right {width:48%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.page-left img,.page-right img {width:95%;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.3);}
+.caption {margin-top:15px;font-family:'Segoe Script',cursive;font-size:22px;color:#ff4b8b;text-align:center;text-shadow:1px 1px 2px #fff;}
+.hidden {opacity:0;transform: rotateY(180deg);}
+.visible {opacity:1;transform: rotateY(0deg);transition:transform 1s ease, opacity 1s ease;}
+
+/* Galleries & Sections */
+.gallery img,.gallery video {max-width:200px;margin:10px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.2);cursor:pointer;}
+#home,#memories,#pretty,#videos,#messages {flex-direction:column;align-items:center;justify-content:flex-start;padding-top:50px;border-radius:15px;box-shadow:0 0 30px rgba(255,150,200,0.3);}
+#home {background:linear-gradient(to right,#fff0f5,#ffe6f0);}
+#memories {background:linear-gradient(to right,#ffe4e1,#fff0f0);}
+#pretty {background:linear-gradient(to right,#ffe4f0,#fff0f5);}
+#videos {background:linear-gradient(to right,#f0e6ff,#e6e0ff);}
+#messages {background:linear-gradient(to right,#e6fff2,#d0fff0);font-family:'Georgia',serif;font-size:22px;line-height:1.5;}
+
+/* Decorations */
+#hearts,#hearts-intro,#petals {position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;z-index:0;}
+#music-btn {display:none;position:fixed;bottom:10px;right:10px;z-index:999;}
+</style>
+</head>
+<body>
+
+<!-- Decorations -->
+<div id="hearts"></div>
+<div id="petals"></div>
+
+<!-- Music -->
+<audio id="bg-music" loop><source src="Song.mp3" type="audio/mp3"></audio>
+<button id="music-btn" onclick="toggleMusic()">▶ Play Music</button>
+
+<!-- Intro Screen -->
+<div id="intro-screen" class="screen active">
+  <h1>Ready for the birthday surprise my stupid 🤭</h1>
+  <button id="start-btn">Yes 🥹</button>
+  <div id="hearts-intro"></div>
+</div>
+
+<!-- Slideshow -->
+<div id="slideshow-container" class="screen">
+  <!-- Generate book pages for Her1-Her36 manually with captions -->
+  <div class="book-page visible">
+    <div class="page-left"><img src="her1.jpg"><div class="caption">Angry bird</div></div>
+    <div class="page-right"><img src="her2.jpg"><div class="caption">Cuteness overloaded</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her3.jpg"><div class="caption">Traditionals</div></div>
+    <div class="page-right"><img src="her4.jpg"><div class="caption">Adorable</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her5.jpg"><div class="caption">Bday clicks</div></div>
+    <div class="page-right"><img src="her6.jpg"><div class="caption">Selfie queen</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her7.jpg"><div class="caption">Shaadi vibes</div></div>
+    <div class="page-right"><img src="her8.jpg"><div class="caption">My pretty chashmish</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her9.jpg"><div class="caption">School dress mai bhi 10/10</div></div>
+    <div class="page-right"><img src="her10.jpg"><div class="caption">tumhara go to pose hehe</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her11.jpg"><div class="caption">Meri fav pic</div></div>
+    <div class="page-right"><img src="her12.jpg"><div class="caption">Traditionals 2.0</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her13.jpg"><div class="caption">Model</div></div>
+    <div class="page-right"><img src="her14.jpg"><div class="caption">red cheeks</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her15.jpg"><div class="caption">Bhagwan ji ki fav</div></div>
+    <div class="page-right"><img src="her16.jpg"><div class="caption">Tooo prettyyy</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her17.jpg"><div class="caption">Winter vibes</div></div>
+    <div class="page-right"><img src="her18.jpg"><div class="caption">First pic jo tumne bheji thi</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her19.jpg"><div class="caption">Tumhari manpasand pfp</div></div>
+    <div class="page-right"><img src="her20.jpg"><div class="caption">Another traditional</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her21.jpg"><div class="caption">Mere bday din hehe</div></div>
+    <div class="page-right"><img src="her22.jpg"><div class="caption">Are ye 2 baar ho gyi,cutee</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her23.jpg"><div class="caption">Ufff</div></div>
+    <div class="page-right"><img src="her24.jpg"><div class="caption">Choti bacchi</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her25.jpg"><div class="caption">Random clicks</div></div>
+    <div class="page-right"><img src="her26.jpg"><div class="caption">Tumhare bdayyy ki pic</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her27.jpg"><div class="caption">Another traditional cuz too good</div></div>
+    <div class="page-right"><img src="her28.jpg"><div class="caption">Attitudeee</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her29.jpg"><div class="caption">Familyy clicks</div></div>
+    <div class="page-right"><img src="her30.jpg"><div class="caption">Family clicks 2</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her31.jpg"><div class="caption">Solos bhi rehni chahiye</div></div>
+    <div class="page-right"><img src="her32.jpg"><div class="caption">Family clicks 3</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her33.jpg"><div class="caption">Friendsss</div></div>
+    <div class="page-right"><img src="her34.jpg"><div class="caption">Bhaiya sathh bhi</div></div>
+  </div>
+  <div class="book-page hidden">
+    <div class="page-left"><img src="her35.jpg"><div class="caption">Ghibli hehe</div></div>
+    <div class="page-right"><img src="her36.jpg"><div class="caption">Finally tumhari fav cousin</div></div>
+  </div>
+</div>
+
+<!-- Home Menu -->
+<div id="home" class="screen">
+  <h1>🎂 Happy Birthday Stupid ❤</h1>
+  <h2>Choose a surprise 🎁</h2>
+  <button onclick="goTo('memories')">📸 Our Memories</button>
+  <button onclick="goToPretty()">💃 My Pretty Lady</button>
+  <button onclick="goTo('videos')">🎥 Her Videos</button>
+  <button onclick="goTo('messages')">💌 Birthday Letter</button>
+</div>
+
+<!-- Memories / Spinning Wheel -->
+<div id="memories" class="screen">
+  <h2>📸 Our Memories</h2>
+  <canvas id="wheel" width="400" height="400" style="border:3px solid #fff; border-radius:50%; margin:20px;"></canvas>
+  <button id="spin-wheel-btn">🎡 Spin Wheel</button>
+  <div class="gallery" id="wheel-gallery"></div>
+  <button onclick="goTo('home')">⬅ Back</button>
+</div>
+
+<!-- Pretty Lady Section -->
+<div id="pretty" class="screen">
+  <h2>💃 My Pretty Lady</h2>
+  <div id="rate-overlay" style="
+       display:flex; flex-direction:column; align-items:center; justify-content:center; 
+       position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); 
+       background:rgba(255,255,255,0.9); padding:20px; border-radius:15px; 
+       font-size:24px; text-align:center; z-index:10;">
+    Rate yourself out of 10 ❤
+  </div>
+  <div class="gallery" id="pretty-gallery" style="display:flex; flex-wrap:wrap; justify-content:center; margin-top:50px;">
+  </div>
+  <button onclick="goTo('home')">⬅ Back</button>
+</div>
+
+<!-- Videos -->
+<div id="videos" class="screen">
+  <h2>🎥 Her Videos</h2>
+  <div class="gallery">
+    <video controls width="250"><source src="Video1.mp4"></video>
+    <video controls width="250"><source src="Video2.mp4"></video>
+    <video controls width="250"><source src="Video3.mp4"></video>
+    <video controls width="250"><source src="Video4.mp4"></video>
+    <video controls width="250"><source src="Video5.mp4"></video>
+    <video controls width="250"><source src="Video6.mp4"></video>
+    <video controls width="250"><source src="Video7.mp4"></video>
+    <video controls width="250"><source src="Video8.mp4"></video>
+    <video controls width="250"><source src="Video9.mp4"></video>
+    <video controls width="250"><source src="Video10.mp4"></video>
+    <video controls width="250"><source src="Video11.mp4"></video>
+  <video controls width="250"><source src="Video20.mp4"></video>
+
+    <video controls width="250"><source src="Video12.mp4"></video>
+    <video controls width="250"><source src="Video13.mp4"></video>
+    <video controls width="250"><source src="Video14.mp4"></video>
+    <video controls width="250"><source src="Video15.mp4"></video>
+    <video controls width="250"><source src="Video16.mp4"></video>
+    <video controls width="250"><source src="Video17.mp4"></video>
+    <video controls width="250"><source src="Video18.mp4"></video>
+    <video controls width="250"><source src="Video19.mp4"></video>
+
+  </div>
+  <button onclick="goTo('home')">⬅ Back</button>
+</div>
+
+<!-- Messages / Letter -->
+<div id="messages" class="screen">
+  <h2 id="msg"></h2>
+  <!-- Hidden bio revealed after letter -->
+  <div id="hidden-bio" class="screen" style="display:none; flex-direction:column; align-items:center; justify-content:center;">
+    <h2>💖 Meet Hansika 💖</h2>
+    <img src="her37.jpg" width="250" style="border-radius:15px; margin:15px;">
+    <p style="max-width:400px; text-align:center; font-size:18px; line-height:1.6;">
+      💖 <strong>Introduction:</strong><br>
+      Someone is turning 17.idk who,must be some irritating fellow.But this stupid girl makes life really interesting. So I know her since Prep,but with all due honesty,iski sachayi 8th se pata chali.The devilish reality behind that innocent face was insane.Mtlb itni calm,peaceful,gracious jo lgti ye sbko sab jhooth hai ek dam dusht ladki hai innocent to bilkul bhi nahi,sab samajh aata ise.Anywaysss she is my partner in crime,at this point we are the same person hehe sharing this weird telepathy yk.She bullies me a lotttttt kabhi apni galti nahi manti,jab mab karta ignore maar deti but kya hi kar sakte mai iske jitta evil nahi ki chhod du.But recency bias aside,she holds some of my best memories toooo.Iski constant pak pak and fit checks make my day(ofc she is very pretty).Ek dam chote baccho tarah nautanki karti ye aur bahut sensitive hai.Overall pure package hai entertainment ka.Loved this product,10/10 experience,highly recommended(but won<t share)totally obsessed with it but would recommend adding obediency features.Moreover,at the time of making this,she isn't really talking to me cuz I made her angryyyy hope iss time tak she forgives hehe kyonki I really like herrr chirping version buttt silent treatment de rhi mahino se uhm uhm.Nevertheless mai shamelessly manata rhunga hehe kyonki she reallyyy cares for me and pakkaaa maaf kar degi mujhe.<br><br>
+
+      🌸 <strong>Reasons Why I Like Her:</strong><br>
+      - She talks. A lot(reallly baht zyada). My favorite part of every day is lying in bed, listening to her blabber about her day hehe.Baht maza aati iski gossip sunne mai and cute harkatein dekhne mai hehe.Total drama queen hai and too good at making me do whatever she wants.Hehe very playful and flirty too at times.<br>
+      - She is always right- Yes folks!God gave me a girl who is always right.Kabhi galti hi nahi hoti iski,ye na hoti to mujhe pata na chalta mai kitna galat insaan hu guyss.<br>
+      - Very creativeee-Art,decor etc mai to koi match hi nahiiii she is too good at these things.Makes very tasty cakes like herself<br>
+      - Very caringggg-Ek dam mummy ban jati gussa krte time har choti choti cheez pe tokti butI like ittt kyonki it shows she caressss and genuinely wants good for me.We are really attached(Though abhi she is angry but she'll be back)and she is my comfort zone.<br>
+      - Filterless to me-Duniya ke samne she is all serious and cool but in front of me she is a total mess which I really really like(though she is perfect even when messy).I love how true and honest she is to me,kabhi kuch bhi feel kr rhi ho to hide nhi krti and silently judge nahi krti.She shares her imperfections with me too and I really like how she carries herslef,a perfect daughter toooo.<br>
+      -Always prioritises me-Hehe what to say mai hu hi itta acha.But seriously,never takes too long to respond,agar dusro ko nahi bhi bata rhi kuch to bhi mujhe batati and mere samne ek dam childish rehti instead of hiding stuff from me.<br>
+<br>
+
+      ✨ <strong>Pros (Fun & Playful):</strong><br>
+      -  Too prettyyyy — 457,yes gentlemen thats the number of pics I have of her,and yet I cannot get enough of her,10-15 din pehle coaching mai she wore a white kurti and I couldn't take my eyes of her.Itti baar itti dresses mai bhi dekhne baad I still feel just as bewitched as I felt the first time uhm,no matter what she wears,even in the most casual clothes she looks pretty to me.<br>
+      - Playful and mischievous — she flirts, teases, and keeps me on my toes.Ispe kya hi bolo uhm,when she is in a good mood,she is insane hehe.<br>
+      - Chatterbox extraordinaire — late-night gossip sessions are her "pata hai aaj kya hua" is my fav part of the day.<br>
+      - Gets jealous-Best part,no further comments otherwise she'll hit me for my doings hehe.<br>
+      - Supportive — from coaching  to motivating each other for boards,we have been through some thicks and thins but she’s always my rock and never leaves my side.<br>
+      -Entertainment— Iske aane baad se life mai drama and thrill ki kami nahi rahi hai.<br>
+      <br>
+
+      😅 <strong>Cons (Teasing Style):</strong><br>
+      - Short-tempered-No explanation needed.Baat manti but baat ka bura baht tez manti and then silent treatmentttt but yk I love irritating her hehe so I enjoy getting scolded and phir manana.<br>
+      - Throws tantrums-Very good at doing nautanki and getting attention,baht pamper krna padta isko(I like doing it hehe).<br>
+      
+      - Self-obsessed — Again no explanation needed.<br>
+      - Bossy-Whenever her highness gives a command,my job is to obey otherwise kalesh,very dusht ladkiii.<br><br>
+
+      ❤ <strong>Conclusion:</strong><br>
+      In short, Hansika,you are a beautiful disaster, my daily chaos, my nightly entertainment, my partner-in-crime, and my absolute favorite human. Every blabber, tantrum, teasing session, gossip, and playful fight only makes me adore you more. Life is brighter, funnier, and infinitely better with you in it stupid.I really am thankful for u my dear angry bird hehe. Messy, dramatic, gorgeous, and completely unforgettable — that’s Hansika, and I wouldn’t have it any other way. ❤
+    </p>
+    <button onclick="goTo('home')">⬅ Back</button>
+  </div>
+</div>
+
+<script>
+// --- Intro screen ---
+// --- Intro screen ---
+document.getElementById('start-btn').addEventListener('click',()=>{
+  document.getElementById('intro-screen').classList.remove('active');
+  startSlideshow();
+  document.getElementById('music-btn').style.display='block';
+});
+
+// --- Music toggle ---
+window.toggleMusic = function(){
+  const m = document.getElementById('bg-music');
+  m.paused ? m.play() : m.pause();
+}
+
+// --- Navigation ---
+window.goTo = function(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+
+  if(id === 'messages') startLetterTyping();
+}
+
+// --- Birthday Letter ---
+const letterText = `Dear stupidddd 🧅,
+
+Sbse pehle Happyyyy Birthdayyyyyy! 🎂🎉
+
+Ji to apke liye mai kya hi boluuu kuch bolna baaki bhi haiii uhm uhm.Youuu are reallyyy really very precious to meee💗.Hehe tum hi to meri entertainment package hooo tum na ho to life feels sooo boringgg🤭.Tumhare sath pakar pakar krna is the besttt part of my dayyy.The tantrums u throw are sometimes too muchhh😒 but ab man maine badhaya hai to tumhe jhelna bhi meri hi responsibility haiii righttt,waise bhi I love listening to yourrrr pata hai aaj kya huaaa.Huh achi baatein to kaafi hein butttt kitta ladtiii bhi ho tum.Mere jitna apke moodswings kaun hi tolerate kar skta😁😉.I have said this manyyy times but phir kahungaaa you are a great and responsible daughter too,totally different from this generation.Lastlyyy apni health ka dhyannn rkhaaa kroo kitna bimar padtiii buddhu jab dekho colddd,take careee of yourselffff.Phir se happy birthdayyyy and apna din enjoyyyy krnaaaa ache se👌👌.
+
+Yourrr Dumbooo.
+`;
+function startLetterTyping(){
+  const msgElem = document.getElementById('msg');
+  msgElem.textContent = "";
+  let i = 0;
+  const interval = setInterval(()=>{
+    msgElem.textContent += letterText[i++];
+    if(i >= letterText.length){
+      clearInterval(interval);
+      // After letter finishes, show hidden bio
+      document.getElementById('hidden-bio').style.display='flex';
+    }
+  },50);
+}
+
+// --- Slideshow ---
+const slides = document.querySelectorAll('.book-page');
+let idx = 0;
+function startSlideshow(){
+  const show = document.getElementById('slideshow-container');
+  show.classList.add('active');
+  slides.forEach(s=>{s.classList.remove('visible');s.classList.add('hidden');});
+  idx = 0;
+  slides[idx].classList.remove('hidden'); slides[idx].classList.add('visible');
+  let interval = setInterval(()=>{
+    slides[idx].classList.remove('visible'); slides[idx].classList.add('hidden');
+    idx++;
+    if(idx >= slides.length){
+      clearInterval(interval);
+      show.classList.remove('active');
+      goTo('home');
+      return;
+    }
+    slides[idx].classList.remove('hidden'); slides[idx].classList.add('visible');
+  },3000);
+}
+
+// --- Floating Hearts/Petals ---
+function spawnFloating(containerId,symbol,interval=800,sizeRange=[15,30]){
+  const container = document.getElementById(containerId);
+  setInterval(()=>{
+    const e = document.createElement('div');
+    e.style.position='absolute';
+    e.style.left = Math.random()*100+'vw';
+    e.style.fontSize = (sizeRange[0]+Math.random()*(sizeRange[1]-sizeRange[0]))+'px';
+    e.style.animation = "floatUp 6s linear infinite";
+    e.innerHTML = symbol;
+    container.appendChild(e);
+    setTimeout(()=>e.remove(),6000);
+  },interval);
+}
+spawnFloating('hearts','❤'); spawnFloating('petals','🌸',1200,[20,35]); spawnFloating('hearts-intro','❤',1000,[20,40]);
+
+// --- Spinning Wheel ---
+const wheelCanvas = document.getElementById('wheel');
+const wheelCtx = wheelCanvas.getContext('2d');
+const wheelImgs = ['Memory1.jpg','Memory2.jpg','Memory3.jpg','Us1.jpg','Us2.jpg','Us3.jpg','Us4.jpg','Us5.jpg','Us6.jpg','Us7.jpg','Us8.jpg','Us9.jpg'];
+const wheelSegments = wheelImgs.length;
+let angle = 0;
+function drawWheel(){
+  const cx = wheelCanvas.width/2;
+  const cy = wheelCanvas.height/2;
+  const radius = wheelCanvas.width/2 -10;
+  wheelCtx.clearRect(0,0,wheelCanvas.width,wheelCanvas.height);
+  for(let i=0;i<wheelSegments;i++){
+    const start = (i*(2*Math.PI)/wheelSegments)+angle;
+    const end = ((i+1)*(2*Math.PI)/wheelSegments)+angle;
+    wheelCtx.beginPath();
+    wheelCtx.moveTo(cx,cy);
+    wheelCtx.arc(cx,cy,radius,start,end);
+    wheelCtx.fillStyle = i%2===0 ? '#ffb6c1':'#ff69b4';
+    wheelCtx.fill();
+    wheelCtx.save();
+    wheelCtx.translate(cx,cy);
+    const mid = (start+end)/2;
+    wheelCtx.rotate(mid);
+    const img = new Image();
+    img.src = wheelImgs[i];
+    img.onload = ()=>{ wheelCtx.drawImage(img, radius*0.5, -20, 40, 40);}
+    wheelCtx.restore();
+  }
+}
+drawWheel();
+document.getElementById('spin-wheel-btn').addEventListener('click',()=>{
+  let spins = Math.floor(Math.random()*10+10);
+  let count = 0;
+  const spinInterval = setInterval(()=>{
+    angle += 0.3;
+    drawWheel();
+    count++;
+    if(count>=spins*wheelSegments){
+      clearInterval(spinInterval);
+      const selected = Math.floor(Math.random()*wheelSegments);
+      alert("Wheel stopped at: "+wheelImgs[selected]);
+      const gallery = document.getElementById('wheel-gallery');
+      gallery.innerHTML = '';
+      const img = document.createElement('img');
+      img.src = wheelImgs[selected]; img.width=150;
+      gallery.appendChild(img);
+    }
+  },20);
+});
+
+// --- Pretty Lady Section ---
+function goToPretty(){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  const pretty = document.getElementById('pretty');
+  pretty.classList.add('active');
+
+  const overlay = document.getElementById('rate-overlay');
+  overlay.style.display = 'flex';
+  overlay.textContent = "Rate yourself out of 10 ❤";
+
+  setTimeout(()=>{
+    overlay.textContent = "Oops! The creator already rated you 100/10 😍 and is madly obsessed with you!";
+    
+    setTimeout(()=>{
+      overlay.style.display='none';
+      const gallery = document.getElementById('pretty-gallery');
+      gallery.innerHTML = '';
+      for(let i=1;i<=36;i++){
+        const img = document.createElement('img');
+        img.src = 'her'+i+'.jpg'; img.width=100; img.style.margin='5px';
+        gallery.appendChild(img);
+      }
+    },2000);
+  },2000);
+}
+</script>
+
+<style>
+@keyframes floatUp{
+  from{transform:translateY(100vh) rotate(0deg);opacity:1;}
+  to{transform:translateY(-10vh) rotate(360deg);opacity:0;}
+}
+</style>
+</body>
+</html>
+
+
