@@ -336,7 +336,7 @@ spawnFloating('hearts','❤'); spawnFloating('petals','🌸',1200,[20,35]); spaw
 // --- Spinning Wheel ---
 const wheelCanvas = document.getElementById('wheel');
 const wheelCtx = wheelCanvas.getContext('2d');
-const wheelImgs = ['Memory1.jpg','Memory2.jpg','Memory3.jpg','Us1.jpg','Us2.jpg','Us3.jpg','Us4.jpg','Us5.jpg','Us6.jpg','Us7.jpg','Us8.jpg','Us9.jpg'];
+const wheelImgs = ['Memory1.jpg','Memory2.jpg','Memory3.jpg','Us1.jpg','Us2.jpg','Us3.jpg','Us4.jpg','Us5.jpg','Us6.jpg','Us7.jpg','Us8.jpg','Us9.jpg','Memory20.jpg','Memory21.jpg','Memory22.jpg'];
 const wheelSegments = wheelImgs.length;
 let angle = 0;
 function drawWheel(){
@@ -400,7 +400,7 @@ function goToPretty(){
       overlay.style.display='none';
       const gallery = document.getElementById('pretty-gallery');
       gallery.innerHTML = '';
-      for(let i=1;i<=50;i++){
+      for(let i=1;i<=80;i++){
         const img = document.createElement('img');
         img.src = 'her'+i+'.jpg'; img.width=100; img.style.margin='5px';
         gallery.appendChild(img);
