@@ -1,15 +1,9 @@
-
-
-
-
-
-
 v<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ❤</title>
+<title>Happy Birthday ❤️</title>
 <style>
 body {margin:0;font-family:'Georgia',serif;overflow-x:hidden;background:linear-gradient(to right,#ffe6f0,#fff5e6);}
 h1,h2 {margin:0 0 20px 0;color:#333;text-shadow:1px 1px 2px #fff;}
@@ -58,7 +52,7 @@ button:hover {background:linear-gradient(to right,#ff758c,#ff7eb9);transform:sca
 
 <!-- Music -->
 <audio id="bg-music" loop><source src="Song.mp3" type="audio/mp3"></audio>
-<button id="music-btn" onclick="toggleMusic()">▶ Play Music</button>
+<button id="music-btn" onclick="toggleMusic()">▶️ Play Music</button>
 
 <!-- Intro Screen -->
 <div id="intro-screen" class="screen active">
@@ -146,7 +140,7 @@ button:hover {background:linear-gradient(to right,#ff758c,#ff7eb9);transform:sca
 
 <!-- Home Menu -->
 <div id="home" class="screen">
-  <h1>🎂 Happy Birthday Stupid ❤</h1>
+  <h1>🎂 Happy Birthday Stupid ❤️</h1>
   <h2>Choose a surprise 🎁</h2>
   <button onclick="goTo('memories')">📸 Our Memories</button>
   <button onclick="goToPretty()">💃 My Pretty Lady</button>
@@ -160,7 +154,7 @@ button:hover {background:linear-gradient(to right,#ff758c,#ff7eb9);transform:sca
   <canvas id="wheel" width="400" height="400" style="border:3px solid #fff; border-radius:50%; margin:20px;"></canvas>
   <button id="spin-wheel-btn">🎡 Spin Wheel</button>
   <div class="gallery" id="wheel-gallery"></div>
-  <button onclick="goTo('home')">⬅ Back</button>
+  <button onclick="goTo('home')">⬅️ Back</button>
 </div>
 
 <!-- Pretty Lady Section -->
@@ -171,11 +165,11 @@ button:hover {background:linear-gradient(to right,#ff758c,#ff7eb9);transform:sca
        position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); 
        background:rgba(255,255,255,0.9); padding:20px; border-radius:15px; 
        font-size:24px; text-align:center; z-index:10;">
-    Rate yourself out of 10 ❤
+    Rate yourself out of 10 ❤️
   </div>
   <div class="gallery" id="pretty-gallery" style="display:flex; flex-wrap:wrap; justify-content:center; margin-top:50px;">
   </div>
-  <button onclick="goTo('home')">⬅ Back</button>
+  <button onclick="goTo('home')">⬅️ Back</button>
 </div>
 
 <!-- Videos -->
@@ -207,7 +201,7 @@ button:hover {background:linear-gradient(to right,#ff758c,#ff7eb9);transform:sca
     <video controls width="250"><source src="Video21.mp4"></video>
     <video controls width="250"><source src="Video22.mp4"></video>
   </div>
-  <button onclick="goTo('home')">⬅ Back</button>
+  <button onclick="goTo('home')">⬅️ Back</button>
 </div>
 
 <!-- Messages / Letter -->
@@ -246,10 +240,10 @@ button:hover {background:linear-gradient(to right,#ff758c,#ff7eb9);transform:sca
       - Self-obsessed — Again no explanation needed.<br>
       - Bossy-Whenever her highness gives a command,my job is to obey otherwise kalesh,very dusht ladkiii.<br><br>
 
-      ❤ <strong>Conclusion:</strong><br>
-      In short, Hansika,you are a beautiful disaster, my daily chaos, my nightly entertainment, my partner-in-crime, and my absolute favorite human. Every blabber, tantrum, teasing session, gossip, and playful fight only makes me adore you more. Life is brighter, funnier, and infinitely better with you in it stupid.I really am thankful for u my dear angry bird hehe. Messy, dramatic, gorgeous, and completely unforgettable — that’s Hansika, and I wouldn’t have it any other way. ❤
+      ❤️ <strong>Conclusion:</strong><br>
+      In short, Hansika,you are a beautiful disaster, my daily chaos, my nightly entertainment, my partner-in-crime, and my absolute favorite human. Every blabber, tantrum, teasing session, gossip, and playful fight only makes me adore you more. Life is brighter, funnier, and infinitely better with you in it stupid.I really am thankful for u my dear angry bird hehe. Messy, dramatic, gorgeous, and completely unforgettable — that’s Hansika, and I wouldn’t have it any other way. ❤️
     </p>
-    <button onclick="goTo('home')">⬅ Back</button>
+    <button onclick="goTo('home')">⬅️ Back</button>
   </div>
 </div>
 
@@ -277,14 +271,14 @@ window.goTo = function(id){
 }
 
 // --- Birthday Letter ---
-const letterText = Dear stupidddd 🧅,
+const letterText = `Dear stupidddd 🧅,
 
 Sbse pehle Happyyyy Birthdayyyyyy! 🎂🎉
 
 Ji to apke liye mai kya hi boluuu kuch bolna baaki bhi haiii uhm uhm.Youuu are reallyyy really very precious to meee💗.Hehe tum hi to meri entertainment package hooo tum na ho to life feels sooo boringgg🤭.Tumhare sath pakar pakar krna is the besttt part of my dayyy.The tantrums u throw are sometimes too muchhh😒 but ab man maine badhaya hai to tumhe jhelna bhi meri hi responsibility haiii righttt,waise bhi I love listening to yourrrr nautanki.Huh achi baatein to kaafi hein butttt kitta ladtiii bhi ho tum.Mere jitna apke moodswings kaun hi tolerate kar skta😁😉.I have said this manyyy times but phir kahungaaa you are a great and responsible girl too,totally different from this generation.Lastlyyy apni health ka dhyannn rkhaaa kroo kitna bimar padtiii buddhu jab dekho colddd,take careee of yourselffff.Phir se happy birthdayyyy and apna din enjoyyyy krnaaaa ache se👌👌.
 
 Yourrr Dumbooo.
-;
+`;
 function startLetterTyping(){
   const msgElem = document.getElementById('msg');
   msgElem.textContent = "";
@@ -335,7 +329,7 @@ function spawnFloating(containerId,symbol,interval=800,sizeRange=[15,30]){
     setTimeout(()=>e.remove(),6000);
   },interval);
 }
-spawnFloating('hearts','❤'); spawnFloating('petals','🌸',1200,[20,35]); spawnFloating('hearts-intro','❤',1000,[20,40]);
+spawnFloating('hearts','❤️'); spawnFloating('petals','🌸',1200,[20,35]); spawnFloating('hearts-intro','❤️',1000,[20,40]);
 
 // --- Spinning Wheel ---
 const wheelCanvas = document.getElementById('wheel');
@@ -395,7 +389,7 @@ function goToPretty(){
 
   const overlay = document.getElementById('rate-overlay');
   overlay.style.display = 'flex';
-  overlay.textContent = "Rate yourself out of 10 ❤";
+  overlay.textContent = "Rate yourself out of 10 ❤️";
 
   setTimeout(()=>{
     overlay.textContent = "Oops! The creator already rated you 100/10 😍 and is madly obsessed with you!";
@@ -422,5 +416,3 @@ function goToPretty(){
 </style>
 </body>
 </html>
-
-
